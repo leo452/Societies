@@ -1,0 +1,37 @@
+<main>
+<div>
+  <h3 align="center">Sociedades</h3>
+  <table width="1000" border="0" align="center">
+    <thead>
+    <tr><td align="center">
+      <%= link_to image_tag('anadir.jpg', title: 'Nueva sociedad', :width => "30px", :height => "30px" ), new_society_path  %><br>
+      <%= link_to 'Nueva Sociedad', new_society_path %></td>
+      </tr>
+    </thead>
+  </table>
+  <br>
+      <table width="1000" border="0" align="center">
+        <thead>
+    <tr>
+      <th align="left">Nombre Sociedad</th>
+      <th align="right">Valor Anual</th>
+      <th align="right">Valor Mensual</th>
+      <th align="right">Valor Dos Contados</th>
+      <th colspan="5"></th>
+    </tr>
+    <tbody align="center">
+
+    <% Society.all.each do |societies| %>
+        <td align="left" width="200"><%=societies.nombre %></td>
+        <td align="right" width="180">$<%=societies.val_anual%></td>
+        <td align="right" width="180">$<%=societies.val_semestral%></td>
+        <td align="right" width="180">$<%=societies.val_mensual%></td>
+        <td><%= link_to image_tag('ver.png', title: 'Ver'), societies %></td>
+        <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_society_path(societies) %></td>
+        <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'), societies, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+        <tr></tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+</main>

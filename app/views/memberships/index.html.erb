@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Memberships</h1>
+
+<table width="850">
+  <thead>
+    <tr>
+      <th align="left" >Society</th>
+      <th align="center">Periodicidad</th>
+      <th>Fecha afiliacion</th>
+      <th>Fecha vencimiento</th>
+      <th>Fecha cuota</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |membership| %>
+      <tr>
+        <td align="left"><%= membership.society.nombre %></td>
+        <td align="center"><%= membership.periodicidad %></td>
+        <td><%= membership.fecha_afiliacion %></td>
+        <td><%= membership.fecha_vencimiento %></td>
+        <td><%= membership.fecha_cuota %></td>
+        <td><%= link_to 'Show', membership %></td>
+        <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
+        <td><%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Membership', new_membership_path %>

@@ -1,0 +1,42 @@
+
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Sociedades</title>
+
+</head>
+<main>
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Fecha de pago:</strong>
+    <%= @receipt.created_at %>
+
+  </p>
+
+
+  <p>
+  <strong>Nombre del socio:</strong><%= @receipt.client.nombre %> <%=@receipt.client.apellido%>
+  </p>
+  <p>
+    <strong>Documento:</strong>
+    <%= @receipt.client.tipo_documento %> <%=@receipt.client.documento%>
+  </p>
+  <p>
+  <strong>Sociedad:</strong><%= @receipt.society.nombre %>
+  </p>
+  <p>
+    <strong>Forma de Pago:</strong><%= @receipt.forma_de_pago.nombre %>
+  </p>
+  <p>
+    <strong>Valor Cancelado:</strong>
+    <%= @receipt.valor_total %>
+  </p>
+  <div>
+    <%= image_tag @receipt.soporte.url(), title: 'afiliar', :width => "200px", :height => "200px"%>
+  </div>
+
+  <%= link_to 'Atrás', receipts_path %>
+
+
+
+</main>

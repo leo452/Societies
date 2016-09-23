@@ -1,0 +1,95 @@
+<main>
+  <h1>Pago cuota Sociedad</h1>
+  <%= form_for @client, :html => {:multipart => true} do |form| %>
+
+      <br><div>
+
+</div>
+      <% @client.errors.full_messages.each do |message| %>
+          <div>
+            * <%= message %>
+          </div>
+      <% end %>
+
+      <div>
+        <table width="500">
+          <tr>
+            <td width="300">
+              Tipo de documento: <%= @client.tipo_documento %>
+
+            </td>
+
+            <td width="300">
+              Nuemro de documento: <%= @client.documento %>
+            </td>
+          </tr><br>
+          <tr>
+            <td width="300">
+              Nombre: <%= @client.nombre  %>
+            </td>
+            <td>
+              Apellido: <%= @client.apellido  %>
+            </td>
+          </tr><br>
+
+          <tr>
+            <td width="300">
+              Teléfono: <%= @client.telefono  %>
+            </td>
+            <td>
+              Tipo de sociedad: <%= @client.society.nombre %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Periodicidad de pago:<%=@client.periodicidad %>
+            </td>
+            <td width="500">
+              Fecha de afiliación: <%= @client.created_at %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Valor cuota: <%=  %>
+            </td>
+            <td>Fecha periodo de pago: </td>
+          </tr>
+        </table>
+
+      </div>
+
+
+
+
+      <div>
+
+
+
+
+
+      </div>
+      <div>
+
+        Forma de pago: <select name="formaDePago">
+        <%= @formasDePago.each do |forma| %>
+            <option value="<%= forma.id %>"><%= forma.nombre %></option>
+        <% end %>
+      </select>
+        <input id="valor_recibido" name="valor_recibido" placeholder="Valor a recibido" type="number" min="1">
+        <h5><%=  %></h5>
+      </div>
+
+      <div>
+        <h5>Soporte de pago:</h5>
+        <input id="soporte" name="soporte" type="file">
+
+      </div><br>
+      <div>
+
+        <%= form.submit "Guardar" %>
+      </div>
+
+  <% end %>
+</main>
+
+

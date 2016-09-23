@@ -1,0 +1,44 @@
+<main>
+  <div align="center">
+  <p id="notice"><%= notice %></p>
+  <h1>Lista de Cursos</h1>
+
+    <br>
+    <table width="1000" border="0" align="center">
+      <thead>
+      <tr>
+        <td align="center"> <%= link_to image_tag('mas.png', title: 'Nuevo Curso', :width => "30px", :height => "30px"), new_course_path  %><br>
+          <%= link_to 'Nuevo curso', new_course_path %></td>
+      </tr>
+      </thead>
+    </table>
+
+    <br>
+    <table width="800" border="0">
+      <thead>
+      <tr>
+        <th align="left">Nombre</th>
+        <th align="left">Descripción</th>
+        <th align="left">Valor sesion</th>
+        <th align="left">Valor total</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @courses.each do |course| %>
+          <td><%= course.nombre %></td>
+          <td><%=course.descripcion%></td>
+          <td><%=course.valor_sesion%></td>
+          <td><%=course.valor_total%></td>
+          <td><%= link_to image_tag('ver.png', title: 'Ver'), course %></td>
+          <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_course_path(course)  %></td>
+          <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'),course, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+          <td><%= link_to image_tag('pago.jpg', title: 'Vender', :width => "30px", :height => "30px" ), societies_path%>
+          <tr></tr>
+      <% end %>
+      </tbody>
+    </table>
+  <br>
+
+  </div>
+</main>
