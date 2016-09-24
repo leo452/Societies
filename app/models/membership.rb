@@ -1,6 +1,7 @@
 class Membership < ActiveRecord::Base
   belongs_to :society
   has_many :clients
+  belongs_to :user
 
   accepts_nested_attributes_for :clients
   after_create :save_client

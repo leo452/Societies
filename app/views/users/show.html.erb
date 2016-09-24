@@ -16,4 +16,15 @@
 </div>
 <h4 align="center">clientes ingresados por <%= @user.username %> </h4>
 <%= render 'clients/client', obj: @user_clients %>
+
+<div align="center">
+    <%= will_paginate @user_courses %>
+</div>
+<h4 align="center">cursos ingresados por <%= @user.username %> </h4>
+<%= render 'courses/course', obj: @user_courses %>
+<div align="center">
+    <%= will_paginate @user_categories %>
+</div>
+<h4 align="center">categorias creadas por  <%= @user.username %> </h4>
+<%= render 'categories/category', obj: @user_categories %>
 </main>

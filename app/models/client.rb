@@ -2,6 +2,7 @@ class Client < ActiveRecord::Base
   has_many :receipts
   belongs_to :membership
   accepts_nested_attributes_for :receipts
+  belongs_to :user
 
   #after_create :save_receipt
   #after_create :send_mail

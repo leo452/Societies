@@ -25,6 +25,7 @@ class SocietiesController < ApplicationController
   # POST /societies.json
   def create
     @society = Society.new(society_params)
+    @society.user = current_user
     @categories=Category.all
     respond_to do |format|
       if @society.save

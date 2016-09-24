@@ -13,6 +13,12 @@
                 <li><small>
                     <%= pluralize(user.clients.count, "clientes") if user.clients %>
                 </small></li>
+                <li><small>
+                    <%= pluralize(user.courses.count, "cursos") if user.courses %>
+                </small></li>
+                 <li><small>
+                    <%= pluralize(user.categories.count, "categorias") if user.categories %>
+                </small></li>
             </div>
         </div>
     </ul>

@@ -69,7 +69,9 @@
         <h5>Sociedad:</h5>
       </td>
       <td>
+      <%if @client.membership != nil%>
         <%= @client.membership.society.nombre %>
+        <% end %>
       </td>
     </tr>
 

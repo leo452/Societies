@@ -37,6 +37,8 @@ class UsersController < ApplicationController
     def show
     @user_societies = @user.societies.paginate(page: params[:page], per_page: 5)
     @user_clients = @user.clients.paginate(page: params[:page], per_page: 5)
+    @user_courses = @user.courses.paginate(page: params[:page], per_page: 5)
+    @user_categories = @user.categories.paginate(page: params[:page], per_page: 5)
     end
 
     private

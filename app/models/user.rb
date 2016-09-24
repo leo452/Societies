@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
     has_many :clients
     has_many :discounts
     has_many :receipts
+    has_many :memberships
     has_many :societies
+    has_many :courses
+
 
 
 
