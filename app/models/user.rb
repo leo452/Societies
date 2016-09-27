@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-    has_many :categories
-    has_many :clients
-    has_many :discounts
-    has_many :receipts
-    has_many :memberships
-    has_many :societies
-    has_many :courses
+    has_many :categories,dependent: :destroy
+    has_many :clients,dependent: :destroy
+    has_many :discounts,dependent: :destroy
+    has_many :receipts,dependent: :destroy
+    has_many :memberships,dependent: :destroy
+    has_many :societies,dependent: :destroy
+    has_many :courses,dependent: :destroy
 
 
 
