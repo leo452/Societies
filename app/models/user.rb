@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     has_many :memberships,dependent: :destroy
     has_many :societies,dependent: :destroy
     has_many :courses,dependent: :destroy
+    has_many :rols,dependent: :destroy
 
 
 

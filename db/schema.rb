@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923195333) do
+ActiveRecord::Schema.define(version: 20161003155109) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "nombre"
@@ -94,6 +94,12 @@ ActiveRecord::Schema.define(version: 20160923195333) do
 
   add_index "memberships", ["society_id"], name: "index_memberships_on_society_id"
 
+  create_table "permissions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "receipts", force: :cascade do |t|
     t.date     "fecha"
     t.float    "valor_total"
@@ -112,6 +118,27 @@ ActiveRecord::Schema.define(version: 20160923195333) do
   add_index "receipts", ["client_id"], name: "index_receipts_on_client_id"
   add_index "receipts", ["forma_de_pago_id"], name: "index_receipts_on_forma_de_pago_id"
   add_index "receipts", ["society_id"], name: "index_receipts_on_society_id"
+
+  create_table "rol_permissions", force: :cascade do |t|
+    t.integer  "rol_id"
+    t.integer  "permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rols", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "user_id"
+  end
 
   create_table "societies", force: :cascade do |t|
     t.string   "nombre"

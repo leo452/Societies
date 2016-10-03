@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   root  'sessions#new'
   post 'login',to: 'sessions#create'
   delete 'logout',to: 'sessions#destroy'
+  resources :rols
+  resources :permissions, except: [:destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
